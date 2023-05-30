@@ -1,0 +1,40 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "username": "user1",
+        "firstname": "ahmed",
+        "lastname": "khyeri",
+        "email": "khyeri@gmail.com",
+        "password": "password1",
+        "blogPosts": [
+          {
+            "id": 1,
+            "title": "First Post",
+            "content": "This is my first blog post."
+          },
+          {
+            "id": 2,
+            "title": "Second Post",
+            "content": "This is my second blog post."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "username": "user2",
+        "firstname": "mariem",
+        "lastname": "chouchen",
+        "email": "chouchen@gmail.com",
+        "password": "password2",
+        "blogPosts": [
+          {
+            "id": 1,
+            "title": "Hello World",
+            "content": "Welcome to my blog!"
+          }
+        ]
+      }
+    ]
+  }
+  
