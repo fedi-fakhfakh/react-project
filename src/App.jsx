@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useState, useEffect } from 'react';
 import { Route, Routes } from "react-router-dom";
-import { NavBar } from './NavBar';
-import { Home } from './Home';
-import { BlogPost } from './BlogPost';
-import { Account } from "./Account";
-import { Create } from "./Create";
+import { NavBar } from './Components/NavBar';
+import { Home } from './Components/Home';
+import { BlogPost } from './Components/BlogPost';
+import { Account } from "./Components/Account";
+import { Create } from "./Components/Create";
 
 function App() {
   const [data, setData] = useState({});
@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('./users.json');
+        const response = await axios.get('https://blogs-gjhf.onrender.com/api/users'); // Replace '/api/users' with your actual API endpoint
         const jsonData = response.data;
         setData(jsonData);
         setIsLoading(false);
@@ -35,13 +35,13 @@ function App() {
     <>
       <NavBar />
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/Home" element={<Home />} />
         {data.users && data.users.map(user => (
           user.blogPosts.map(posts => (
             <Route
               key={`${posts.id}`}
-              path={`/blogs/${user.username}/${posts.id}`}
-              element={<BlogPost title={posts.title} content={posts.content}/>}
+              path={`/blog/${posts._id}`}
+              element={<BlogPost title={posts.title} content={posts.content} postId={posts._id} firstName={user.firstName} lastName={user.lastName} />}
             />
           ))
         ))}
